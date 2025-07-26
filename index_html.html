@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConnectChat - Real-Time Messaging</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="welcome-overlay" id="welcomeScreen">
+        <div class="welcome-card">
+            <h2>Join ConnectChat</h2>
+            <p>Enter your display name to start chatting with everyone</p>
+            <input type="text" id="nameInput" placeholder="Your name (e.g., John Doe)" maxlength="25">
+            <button onclick="initializeChat()">Start Chatting</button>
+        </div>
+    </div>
+
+    <div class="app-container">
+        <div class="header-section">
+            <h1 class="app-title">ConnectChat</h1>
+            <div class="connection-status">
+                <div class="status-dot"></div>
+                <span id="userCounter">1 participant online</span>
+            </div>
+        </div>
+        
+        <div class="chat-area" id="chatMessages">
+            <!-- Dynamic messages will be inserted here -->
+        </div>
+        
+        <div class="typing-display" id="typingStatus" style="display: none;">
+            <span id="typingText">Someone is typing</span>
+            <div class="typing-dots">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+        </div>
+        
+        <div class="input-section">
+            <textarea class="message-input" id="textInput" placeholder="Type your message here..." rows="1"></textarea>
+            <button class="send-btn" id="submitBtn" onclick="publishMessage()">Send</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
